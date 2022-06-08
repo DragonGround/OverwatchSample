@@ -45,6 +45,10 @@ If you use them in one of your project, don't hesitate to drop a message to dela
 
 More info and icons available at https://game-icons.net
 
+## Lightning Texture Sheet
+
+Inguz Media Studio (https://assetstore.unity.com/packages/vfx/particles/fire-explosions/free-2d-impact-fx-201222)
+
 ## Ingame Screenshot
 
 Taken by myself (@Singtaa). I'll license it as Creative Commons Attribution (CC BY) https://creativecommons.org/licenses/by/4.0/
