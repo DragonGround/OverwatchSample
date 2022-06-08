@@ -2,6 +2,8 @@
 
 This sample code is meant for [OneJS](https://onejs.com) users. Video Demo: https://vimeo.com/718225603
 
+NOTE: The lightning texture sheet used in the video cannot be freely distributed. So a different but free (and still good looking!) version is included for this repo.
+
 ## Step-by-step Setup
 
 * Extract this repo to /Addons/OverwatchSample (under your project's persistentDataPath)
