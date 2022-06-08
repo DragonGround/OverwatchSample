@@ -9,6 +9,25 @@ import { Color, Vector2 } from "UnityEngine"
 import { MeshGenerationContext, LineJoin, LineCap, Painter2D } from "UnityEngine/UIElements"
 import { CharacterManager } from "./charman"
 
+/**
+ * Note: This health bar here is a good example of how you'd want to approach
+ * performance tuning (since using heavy vector api every frame can be quite heavy).
+ * 
+ * Recommended workflow (for CPU-bound UI animation):
+ * 
+ * 1) Rapid prototype everything here in TS with states and dom re-renders.
+ * 2) Identify areas where UI state change is very frequent (i.e. every frame) and 
+ *    turn it into imperative code.
+ * 3) If more performance is needed, convert the TS code into a custom VisualElement
+ *    in C#.
+ * 4) If even more performance is needed, consider pooling animations with bursted jobs.
+ * 
+ * For majority of UI code where state change is infrequent (not every frame), you can 
+ * just stop at step 1). In this particular sample, we achieved acceptable desktop 
+ * performance at step 2) after converting some declarative code into imperative. In 
+ * practice, you'd want to go for step 3) for this kind of health bar animation.
+ */
+
 const Bar = forwardRef(({ }: {}, ref: MutableRef<Dom>) => {
 
     useEffect(() => {
