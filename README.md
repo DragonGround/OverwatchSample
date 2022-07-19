@@ -6,8 +6,8 @@ NOTE: The lightning texture sheet used in the video cannot be freely distributed
 
 ## Step-by-step Setup
 
-* Extract this repo to /Addons/OverwatchSample (under your project's persistentDataPath)
-* Under root (your project's persistentDataPath), make a `index.tsx` file like below:
+* Extract this repo to `{ProjectDir}/OneJS/OverwatchSample`
+* Under `{ProjectDir}`, make a `index.tsx` file like below:
 
 ```ts
 import { render, h } from "preact"
