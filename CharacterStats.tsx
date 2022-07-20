@@ -11,7 +11,7 @@ import { CharacterManager } from "./charman"
 
 /**
  * Note: This health bar here is a good example of how you'd want to approach
- * performance tuning (since using heavy vector api every frame can be quite heavy).
+ * performance tuning (since using vector api every frame can be quite heavy).
  * 
  * Recommended workflow (for CPU-bound UI animation):
  * 
