@@ -23,7 +23,7 @@ function animate(time) {
 requestAnimationFrame(animate)
 ```
 
-* Open `persistentDataPath` with VSCode and run the `tsc: watch` task (Ctrl + Shift + B)
+* Open `{ProjectDir}/OneJS` with VSCode and run the `tsc: watch` task (Ctrl + Shift + B)
 * In Unity, drag a ScriptEngine prefab onto the scene.
 * Import the included `CharacterManager.cs` file into Unity and drag the MonoBehaviour onto a scene.
 * Then include `CharacterManager` into the Objects list under ScriptEngine's INTEROP; name it to `charman`
