@@ -130,7 +130,7 @@ export const CharacterStats = () => {
             <image class="w-40 h-40" image={ImageLoader.Load(__dirname + "/resources/portrait.png")} />
             <div class="flex-col">
                 <div class="w-96 h-20 flex-row items-end text-xl bold text-white pb-1">
-                    <div ref={healthRef} class="text-4xl" style={{ bottom: -6 }}>{lerped.health}</div>
+                    <div ref={healthRef} class="text-4xl" style={{ bottom: -6 }}>{Math.round(lerped.health)}</div>
                     <div class="text-gray-200 px-1">&#47;</div>
                     <div ref={maxHealthRef} class="">{maxHealth}</div>
                 </div>
