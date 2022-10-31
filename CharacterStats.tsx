@@ -1,3 +1,4 @@
+import { useEventfulState } from "onejs"
 import { Dom } from "OneJS/Dom"
 import { ImageLoader } from "OneJS/Utils"
 import { h } from "preact"
@@ -72,7 +73,6 @@ const Bar = forwardRef(({ }: {}, ref: MutableRef<Dom>) => {
 interface LerpedNums {
     maxHealth: number
     health: number
-    damage: number
 }
 
 let lerped: LerpedNums
@@ -85,37 +85,17 @@ export const CharacterStats = () => {
 
     var charman = require("charman") as CharacterManager
 
-    const [health, setHealth] = useState(charman.Health)
-    const [maxHealth, setMaxHealth] = useState(charman.MaxHealth)
+    const [health, setHealth] = useEventfulState(charman, "Health")
+    const [maxHealth, setMaxHealth] = useEventfulState(charman, "MaxHealth")
 
     if (typeof lerped === "undefined")
-        lerped = { health: charman.Health, maxHealth: charman.MaxHealth, damage: 0 }
-
-    useEffect(() => {
-        charman.add_OnHealthChanged(onHealthChanged)
-        charman.add_OnMaxHealthChanged(onMaxHealthChanged)
-
-        function CleanUp() {
-            charman.remove_OnHealthChanged(onHealthChanged)
-            charman.remove_OnMaxHealthChanged(onMaxHealthChanged)
-        }
-        onEngineReload(CleanUp)
-        return CleanUp
-    }, [])
-
-    function onHealthChanged(v: number): void {
-        setHealth(v)
-    }
-
-    function onMaxHealthChanged(v: number): void {
-        setMaxHealth(v)
-    }
+        lerped = { health: charman.Health, maxHealth: charman.MaxHealth }
 
     useEffect(() => {
         if (typeof tween !== "undefined")
             tween.stop()
-        let l = lerped
-        tween = new Tween(l).to({ maxHealth, health }, 1000)
+        let l = { health: lerped.health, maxHealth: lerped.maxHealth }
+        tween = new Tween(l).to({ maxHealth, health }, 800)
             .easing(Easing.Quadratic.InOut).onUpdate(() => {
                 lerped.health = l.health
                 lerped.maxHealth = l.maxHealth
