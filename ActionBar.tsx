@@ -1,3 +1,4 @@
+import { useEventfulState } from "onejs"
 import { Dom } from "OneJS/Dom"
 import { h } from "preact"
 import { useRef } from "preact/hooks"
@@ -40,31 +41,11 @@ const Slot = ({ iconChar, ready, duration }: { iconChar: string, ready: Date, du
 
 }
 
-export const ActionBar = () => {
+export const ActionBar = () => {//
     var charman = require("charman") as CharacterManager
 
-    const [s1, setS1] = useState(charman.SkillOneReady)
-    const [s2, setS2] = useState(charman.SkillTwoReady)
-
-    useEffect(() => {
-        charman.add_OnSkillOneReadyChanged(onSkillOneReadyChanged)
-        charman.add_OnSkillTwoReadyChanged(onSkillTwoReadyChanged)
-
-        function CleanUp() {
-            charman.remove_OnSkillOneReadyChanged(onSkillOneReadyChanged)
-            charman.remove_OnSkillTwoReadyChanged(onSkillTwoReadyChanged)
-        }
-        onEngineReload(CleanUp)
-        return CleanUp
-    }, [])
-
-    function onSkillOneReadyChanged(v: Date): void {
-        setS1(v)
-    }
-
-    function onSkillTwoReadyChanged(v: Date): void {
-        setS2(v)
-    }
+    const [s1, setS1] = useEventfulState(charman, "SkillOneReady")
+    const [s2, setS2] = useEventfulState(charman, "SkillTwoReady")
 
     return <div class="w-[544px] flex-row justify-end mb-10 pr-10">
         <Slot iconChar="\uE806" ready={s1} duration={charman.SkillOneCooldown} />

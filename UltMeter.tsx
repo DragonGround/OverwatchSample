@@ -1,3 +1,4 @@
+import { useEventfulState } from "onejs"
 import { Dom } from "OneJS/Dom"
 import { namedColor } from "onejs/utils/color-parser"
 import { h } from "preact"
@@ -91,19 +92,7 @@ const RadialProgress = ({ radius, progress }: { radius: number, progress: number
 export const UltMeter = () => {
     var charman = require("charman") as CharacterManager
 
-    const [ult, setUlt] = useState(charman.UltMeter)
-
-    useEffect(() => {
-        charman.remove_OnUltMeterChanged(onUltMeterChanged)
-        charman.add_OnUltMeterChanged(onUltMeterChanged)
-        onEngineReload(() => {
-            charman.remove_OnUltMeterChanged(onUltMeterChanged)
-        })
-    }, [])
-
-    function onUltMeterChanged(v: number): void {
-        setUlt(v)
-    }
+    const [ult, setUlt] = useEventfulState(charman, "UltMeter")
 
     return (
         <RadialProgress radius={64} progress={ult} />
