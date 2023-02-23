@@ -84,7 +84,7 @@ const RadialProgress = ({ radius, progress }: { radius: number, progress: number
                     </div>
                 </div>
             </div>
-            {progress == 1 ? <flipbook class="absolute w-full h-full" src={lightningTexture} num-per-row={8} count={32} interval={0.025} random-rotation={true} style={{ width: radius * 4, height: radius * 4, top: -radius, left: -radius }} /> : null}
+            {progress == 1 ? <flipbook class="absolute w-full h-full" src={lightningTexture} num-per-row={8} count={64} interval={0.025} random-rotation={true} style={{ width: radius * 4, height: radius * 4, top: -radius, left: -radius }} /> : null}
         </div>
     )
 }

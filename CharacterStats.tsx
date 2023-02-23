@@ -1,11 +1,10 @@
 import { useEventfulState } from "onejs"
 import { Dom } from "OneJS/Dom"
-import { ImageLoader } from "OneJS/Utils"
 import { h } from "preact"
 import { forwardRef } from "preact/compact"
 import { MutableRef, useState } from "preact/hooks"
 import { useEffect, useRef } from "preact/hooks"
-import { Easing, Tween } from "tweenjs/tween"
+import { Easing, Tween } from "tweenjs"
 import { Color, Vector2 } from "UnityEngine"
 import { MeshGenerationContext, LineJoin, LineCap, Painter2D } from "UnityEngine/UIElements"
 import { CharacterManager } from "./charman"
@@ -107,7 +106,7 @@ export const CharacterStats = () => {
 
     return (
         <div class="flex-row">
-            <image class="w-40 h-40" image={ImageLoader.Load(__dirname + "/resources/portrait.png")} />
+            <image class="w-40 h-40" image={resource.loadImage(__dirname + "/resources/portrait.png")} />
             <div class="flex-col">
                 <div class="w-96 h-20 flex-row items-end text-xl bold text-white pb-1">
                     <div ref={healthRef} class="text-4xl" style={{ bottom: -6 }}>{Math.round(lerped.health)}</div>
