@@ -1,7 +1,7 @@
 import { useEventfulState } from "onejs"
 import { Dom } from "OneJS/Dom"
 import { h } from "preact"
-import { forwardRef } from "preact/compact"
+import { forwardRef } from "preact/compat"
 import { MutableRef, useState } from "preact/hooks"
 import { useEffect, useRef } from "preact/hooks"
 import { Easing, Tween } from "tweenjs"
