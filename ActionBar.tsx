@@ -47,7 +47,7 @@ export const ActionBar = () => {//
     const [s1, setS1] = useEventfulState(charman, "SkillOneReady")
     const [s2, setS2] = useEventfulState(charman, "SkillTwoReady")
 
-    return <div class="w-[544px] flex-row justify-end mb-10 pr-10">
+    return <div class="w-[544px] flex-row justify-end mb-10 pr-10 text-white">
         <Slot iconChar="\uE806" ready={s1} duration={charman.SkillOneCooldown} />
         <Slot iconChar="\uE805" ready={s2} duration={charman.SkillTwoCooldown} />
         <div class="w-40 h-16 text-5xl items-center flex-row justify-around text-[#FFFFFFBB] border-t-[1px] border-b-[1px] border-[#FFFFFFBB]" style={{ unityFontDefinition: customFont }}>
