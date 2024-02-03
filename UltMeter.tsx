@@ -32,10 +32,12 @@ const RadialProgress = ({ radius, progress }: { radius: number, progress: number
     const [inited, setInited] = useState(false)
 
     useEffect(() => {
-        defaultFont = (document.body as any as Dom).ve.resolvedStyle.unityFontDefinition
-        setInited(true)
-        ref.current.ve.generateVisualContent = onGenerateVisualContent
-        ref.current.ve.MarkDirtyRepaint()
+        setTimeout(() => {
+            defaultFont = (document.body as any as Dom).ve.resolvedStyle.unityFontDefinition
+            setInited(true)
+            ref.current.ve.generateVisualContent = onGenerateVisualContent
+            ref.current.ve.MarkDirtyRepaint()
+        })
     }, [])
 
     useEffect(() => {
