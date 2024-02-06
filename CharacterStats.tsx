@@ -10,6 +10,10 @@ import { MeshGenerationContext, LineJoin, LineCap, Painter2D } from "UnityEngine
 import { CharacterManager } from "./charman"
 
 /**
+ * UPDATE: You can ignore this old note for OneJS V2 as it has achieved 
+ * zero-allocation interop. So you can use the vector api every frame from 
+ * JS to your heart's content (super fast performance with 0 GC.alloc).
+ * 
  * Note: This health bar here is a good example of how you'd want to approach
  * performance tuning (since using vector api every frame can be quite heavy).
  * 
